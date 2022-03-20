@@ -82,10 +82,10 @@ class _DropMenu extends State<DropMenu> {
         value: defaultValue,
         icon: const Icon(Icons.arrow_downward),
     elevation: 16,
-    style: const TextStyle(color: Colors.deepPurple),
+    style: const TextStyle(color: Colors.black),
     underline: Container(
     height: 2,
-    color: Colors.deepPurpleAccent,
+    color: Colors.black,
     ),
     onChanged: (String? newValue) {
     setState(() {
