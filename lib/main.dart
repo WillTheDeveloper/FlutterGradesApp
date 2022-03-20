@@ -49,11 +49,11 @@ class Intro extends StatefulWidget {
 }
 
 class _Intro extends State<Intro> {
-  String Introduction = 'Welcome to the UCAS grade calculator. In this application you will be able to calculate grades!';
+  String introduction = 'Welcome to the UCAS grade calculator. In this application you will be able to calculate grades!';
 
   @override
   Widget build(BuildContext context) {
-    return Text(Introduction,
+    return Text(introduction,
     textAlign: TextAlign.left,
     textScaleFactor: 1.5,);
   }
