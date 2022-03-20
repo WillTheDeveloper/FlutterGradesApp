@@ -29,14 +29,20 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('UCAS Grade Calculator'),
         ),
-        body: const Center(
-          child: SelectMenu(),
+        body: const Align(
+          alignment: Alignment.topLeft,
+          child: DropMenu()
         ),
-        backgroundColor: Colors.grey,
-      )
-
+      ),
     );
   }
+}
+
+class DropMenu extends StatefulWidget {
+  const DropMenu({Key? key}) : super(key: key);
+
+  @override
+  State<DropMenu> createState() => _DropMenu();
 }
 
 class SelectMenu extends StatefulWidget {
@@ -44,6 +50,35 @@ class SelectMenu extends StatefulWidget {
 
   @override
   State<SelectMenu> createState() => _SelectMenu();
+}
+
+class _DropMenu extends State<DropMenu> {
+  String defaultValue = 'A Level';
+
+  @override
+  Widget build(BuildContext content) {
+    return DropdownButton<String>(
+        value: defaultValue,
+        icon: const Icon(Icons.arrow_downward),
+    elevation: 16,
+    style: const TextStyle(color: Colors.deepPurple),
+    underline: Container(
+    height: 2,
+    color: Colors.deepPurpleAccent,
+    ),
+    onChanged: (String? newValue) {
+    setState(() {
+    defaultValue = newValue!;
+    });
+    },
+    items: <String>['A Level', 'Technical Diploma', 'AHHH', 'Four']
+        .map<DropdownMenuItem<String>>((String value) {
+    return DropdownMenuItem<String>(
+    value: value,
+    child: Text(value),
+    );
+    }).toList());
+  }
 }
 
 class _SelectMenu extends State<SelectMenu> {
