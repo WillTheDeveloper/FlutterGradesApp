@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,12 +30,32 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('UCAS Grade Calculator'),
         ),
-        body: const Align(
-          alignment: Alignment.topLeft,
-          child: DropMenu()
-        ),
+        body: Column(
+          children: const [
+            Intro(),
+            DropMenu(),
+          ],
+        )
       ),
     );
+  }
+}
+
+class Intro extends StatefulWidget {
+  const Intro({Key? key}) : super(key: key);
+
+  @override
+  State<Intro> createState() => _Intro();
+}
+
+class _Intro extends State<Intro> {
+  String Introduction = 'Welcome to the UCAS grade calculator. In this application you will be able to calculate grades!';
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(Introduction,
+    textAlign: TextAlign.left,
+    textScaleFactor: 1.5,);
   }
 }
 
